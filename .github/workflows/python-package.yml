@@ -1,0 +1,76 @@
+import random
+import math
+
+
+def fahr_to_celc(f):
+    c = 5/9 * (f - 32)
+    return round(c)
+
+def fahr_to_kelvin(f):
+    k = (f + 459.67) * 5/9
+    return round(k)
+
+def celc_to_fahr(c):
+    f = (c * 9/5) + 32
+    return round(f)
+
+def celc_to_kelvin(c):
+    k = c + 273.15
+    return round(k)
+
+def kelvin_to_celsius(k):
+    c = 500 - 273.15
+    return round(c)
+
+def kelvin_to_fahrenheit(k):
+    f = 9/5 * (k-273) + 32
+    return round(f)
+
+def display_menu():
+    print("Menu")
+    print("1. Celsius to Fahrenheit")
+    print("2. Celsius to Kelvin")
+    print("3. Fahrenheit to Celsius")
+    print("4. Fahrenheit to Kelvin")
+    print("5. Kelvin to Celsius")
+    print("6. Kelvin to Fahrenheit")
+    print()
+
+def convert_temp():
+    select = int(input("Please select your option: "))
+    while select < 1 or select > 6:
+        select = int(input("Select your option from 1-6: "))
+    if select == 1:
+        c = int(input("Enter a degrees Celsius: "))
+        print(celc_to_fahr(c), "degrees Fahrenheit")
+    elif select == 2:
+        c = int(input("Enter a degrees Celsius: "))
+        print(celc_to_kelvin(c), "degrees Kelvin")
+    elif select == 3:
+        f = int(input("Enter a degree Fahrenheit: "))
+        print(fahr_to_celc(f), "degrees Celsius")
+    elif select == 4:
+        f = int(input("Enter a degree Fahrenheit: "))
+        print(fahr_to_kelvin(f), "degrees Kelvin")
+    elif select == 5:
+        k = int(input("Enter a degree Kelvin: "))
+        print(kelvin_to_celsius(k), "degrees Celsius")
+    elif select == 6:
+        k = int(input("Enter a degree Kelvin: "))
+        print(kelvin_to_fahrenheit(k), "degrees Fahrenheit")
+
+
+def main():
+    display_menu()
+    again = "y"
+    while again.lower() == "y":
+        convert_temp()
+        print()
+        again = input("Convert another temperature? (Y/N): ")
+        print()
+
+    print("Bye!")
+
+
+if __name__ == "__main__":
+    main()
